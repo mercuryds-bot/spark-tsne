@@ -13,6 +13,18 @@ import scala.util.Random
 object BHTSNE {
   private def logger = LoggerFactory.getLogger(BHTSNE.getClass)
 
+  def tsneWrapper(
+            input: RowMatrix,
+            noDims: Int = 2,
+            maxIterations: Int = 1000,
+            perplexity: Double = 30,
+            theta: Double = 0.5,
+            seed: Long = Random.nextLong()
+          ): DenseMatrix[Double] = {
+    tsne(input = input, noDims = noDims, maxIterations = maxIterations, perplexity = perplexity,
+      theta = theta, seed = seed)
+  }
+
   def tsne(
             input: RowMatrix,
             noDims: Int = 2,
